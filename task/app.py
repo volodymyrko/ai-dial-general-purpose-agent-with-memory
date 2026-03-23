@@ -62,6 +62,9 @@ class GeneralPurposeAgentApplication(ChatCompletion):
 
             #TODO:
             # Add tools with Long-term memory capabilities
+            StoreMemoryTool(self.memory_store),
+            SearchMemoryTool(self.memory_store),
+            DeleteMemoryTool(self.memory_store),
         ]
 
         tools.extend(await self._get_mcp_tools("http://localhost:8051/mcp"))
